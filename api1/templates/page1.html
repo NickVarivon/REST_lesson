@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello page1</h1>
+<input type="button" id="btn" value="показать то что отдал JSON">
+<div id="root"></div>
+
+
+<script>
+    let root = document.querySelector('#root')
+    console.log(root)
+    btn.addEventListener('click',fn)
+
+        function fn() {
+            fetch('http://127.0.0.1:8000/lesson/')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.arr_object)
+                    root.innerHTML=`<div><p>${data.arr_object[0].id}</p><p>${data.arr_object[1].name}</p></div>`
+                })
+        }
+</script>
+
+</body>
+</html>
